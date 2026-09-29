@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Demonstração de plataforma de chat em tempo real">
+  <title>ConnectChat — Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">C</div>
+        <div><strong>ConnectChat</strong><span>Demo Platform</span></div>
+      </div>
+
+      <div class="profile">
+        <div class="avatar me">AP</div>
+        <div><strong>Anderson</strong><span class="online-dot">● Online</span></div>
+        <button id="profileMenu" class="icon-btn" title="Opções">⋮</button>
+      </div>
+
+      <div class="search-box">
+        <span>⌕</span><input id="searchInput" type="search" placeholder="Pesquisar conversas...">
+      </div>
+
+      <div class="section-title"><span>CONVERSAS</span><button id="newChat" title="Nova conversa">＋</button></div>
+      <div id="chatList" class="chat-list"></div>
+
+      <div class="sidebar-footer">
+        <button class="footer-btn" data-action="notifications">🔔 <span>Notificações</span><b id="notificationCount">3</b></button>
+        <button class="footer-btn" data-action="settings">⚙️ <span>Configurações</span></button>
+      </div>
+    </aside>
+
+    <main class="chat-area">
+      <header class="chat-header">
+        <div class="contact">
+          <div id="headerAvatar" class="avatar">JS</div>
+          <div>
+            <strong id="headerName">João Silva</strong>
+            <span id="headerStatus">online agora</span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn call" data-call="audio" title="Chamada de áudio">☎</button>
+          <button class="icon-btn call" data-call="video" title="Chamada de vídeo">▣</button>
+          <button class="icon-btn" id="openSearch" title="Pesquisar na conversa">⌕</button>
+          <button class="icon-btn" id="moreBtn" title="Mais opções">⋮</button>
+        </div>
+      </header>
+
+      <div id="messages" class="messages"></div>
+
+      <div id="typing" class="typing">João está digitando<span class="dots">...</span></div>
+
+      <div class="composer">
+        <button class="attach-btn" id="attachBtn" title="Anexar arquivo">＋</button>
+        <input id="fileInput" type="file" hidden>
+        <button class="emoji-btn" id="emojiBtn" title="Emoji">☺</button>
+        <input id="messageInput" autocomplete="off" placeholder="Digite uma mensagem..." />
+        <button id="sendBtn" class="send-btn" title="Enviar">➤</button>
+      </div>
+    </main>
+
+    <aside class="details-panel">
+      <div class="details-cover">
+        <div id="detailsAvatar" class="avatar large">JS</div>
+        <strong id="detailsName">João Silva</strong>
+        <span id="detailsPhone">+55 17 99999-0000</span>
+      </div>
+      <div class="details-body">
+        <h4>Informações</h4>
+        <div class="info-row"><span>🟢</span><div><small>Status</small><strong>Disponível</strong></div></div>
+        <div class="info-row"><span>🕐</span><div><small>Última atividade</small><strong>Agora</strong></div></div>
+        <h4>Mídia compartilhada</h4>
+        <div class="media-grid">
+          <div>📷</div><div>📄</div><div>🎬</div><div>🎵</div>
+        </div>
+        <h4>Recursos da demonstração</h4>
+        <div class="feature-list">
+          <span>✓ Chat em tempo real (simulado)</span>
+          <span>✓ Status online / digitando</span>
+          <span>✓ Upload de arquivos</span>
+          <span>✓ Interface de chamadas</span>
+          <span>✓ Persistência via localStorage</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <div id="callModal" class="modal hidden">
+    <div class="call-card">
+      <button class="close-modal" id="closeCall">×</button>
+      <div class="call-avatar avatar large">JS</div>
+      <h2 id="callTitle">Chamada de vídeo</h2>
+      <p id="callSubtitle">Conectando com João Silva...</p>
+      <div class="call-placeholder">WebRTC / LiveKit<br><small>Interface demonstrativa</small></div>
+      <button class="end-call" id="endCall">Encerrar chamada</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
